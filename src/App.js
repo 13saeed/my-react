@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+import './App.css';
+function Profile() {
+  return(
+    <img
+      src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.patterns.dev%2Freact%2F&psig=AOvVaw2pP_RLvtmwzcXp0u4mmXQO&ust=1706078742780000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCLCqv9708oMDFQAAAAAdAAAAABAD"
+      alt="react"
+    />
   );
 }
 
-export default App;
+export default function Gallery(){
+  return(
+    <section>
+      <h1>Amazing</h1>
+      <Profile/>
+    </section>
+  );
+
+}
