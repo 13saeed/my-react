@@ -62,26 +62,158 @@
 
 //   </div>)
 // }
-import Avatar from "./avatar";
+// const poem = {
+//   lines:[
+//     'I write, erase, rewrite',
+//     'Erase again, and then',
+//     'A poppy blooms.'
+//   ]
+// };
+// export default function Poem(){
+//   let output=[];
+//   poem.lines.forEach((line , i) =>{
+//     output.push(
+//       <hr key={i + '-separator'}/>
+//     );
+//     output.push(
+//       <p key={i + '-text'}>
+//         {line}
+//       </p>
+//     );
+//   })
+//   output.shift()
+//  return(
+//   <article>
+//     {output}
+//   </article>
+//  )
+// }
+// function Recipe({drinkers}){
+//   return(
+//     <ol>
+//       <li>Boil {drinkers} cups of water.</li>
+//       <li>Add {drinkers} spoons of tea and {1 * drinkers} spoons of spice.</li>
+//       <li>Add {1 * drinkers} cups of milk to boil and sugar to taste.</li>
+//     </ol>
+//   )
+// }
 
-function Card({children}){
-  return(
-    <div className="card">
-      {children}
-    </div>
-  )
-}
+// export default function App(){
+//   return(
+//     <section>
+//       <h1>Hello</h1>
+//       <h2>Spiced Chai Recipe</h2>
+//       <h2>For Two</h2>
+//       <Recipe drinkers={2}/>
+//       <h2>for Foor</h2>
+//       <Recipe drinkers={4}/>
+//     </section>
+//   )
+// }
 
-export default function Profile(){
+
+// function Cup({g}){
+// return <h2>HELLO .{g}</h2>
+// }
+
+// export default function Test (){
+//   let cups =[]
+//   for(let i = 1 ; i<=15 ;i++){
+//     cups.push(<Cup key={i} g={i}/>);
+//   }
+//   return cups
+// }
+
+// function AlertButton({message , child}){
+//   return(
+//     <button onClick={()=> alert(message)}>
+//       {child}
+//     </button>
+//   )
+// }
+
+// export default function Toolbar(){
+//   return(
+//     <div>
+//     <AlertButton message="playing">
+//       PLAY
+//     </AlertButton>
+//     </div>
+//   )
+// }
+
+// export default function App(){
+//   return(
+//     <div className="toolbar" onClick={() => alert("Click toolbar")}>
+//       <Button onClick={() => alert('palying')}> Play Movies</Button>
+//       <Button onClick={() => alert('uploading')}> uploadImage</Button>
+
+//     </div>
+    
+//   )
+// }
+
+
+// function Button({onClick , children}){
+//   return(
+//     <button onClick={e =>{
+//       e.stopPropagation();
+//       onClick();
+//     }}>
+//       {children}
+//     </button>
+//   )
+// }
+
+// export default function Signup(){
+//   return(
+//     <form onSubmit={e =>{e.preventDefault();alert("submitting")}}>
+//       <input/>
+//       <button>Send</button>
+//     </form>
+//   )
+// }
+
+// import Gallery from "./avatar";
+
+// export default function App(){
+//   return(
+//     <>
+//     <Gallery/>
+//     <br/>
+//     <br/>
+//     <Gallery/>
+//     </>
+//   )
+// }
+import { useState } from "react"
+
+export default function App(){
+  const [firstName , setFirstName]=useState('');
+  const [lastName , setLastName] = useState('');
+  function FirstNameChange(e){
+    setFirstName(e.target.value);
+  }
+  function LastNameChange(e){
+    setLastName(e.target.value)
+  }
+  function resetChange(){
+    setFirstName('')
+    setLastName('')
+  }
   return(
-    <Card>
-      <Avatar
-        size={100}
-        person={{
-          name:"saeedchoupani",
-          imageId:"1adwrs"
-        }}
+    <form onSubmit={e => e.preventDefault()}>
+      <input
+      placeholder="First Name"
+      onChange={FirstNameChange}
+      value={firstName}/>
+      <input
+      placeholder="Last Name"
+      value={lastName}
+      onChange={LastNameChange}
       />
-    </Card>
+      <h1>HI, {firstName} {lastName}</h1>
+      <button onClick={resetChange}>RESET</button>
+    </form>
   )
 }
