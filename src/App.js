@@ -188,32 +188,67 @@
 // }
 import { useState } from "react"
 
-export default function App(){
-  const [firstName , setFirstName]=useState('');
-  const [lastName , setLastName] = useState('');
-  function FirstNameChange(e){
-    setFirstName(e.target.value);
+export default function Form(){
+  const [person,setPerson] = useState({
+    firstname:"saeed",
+    lastname:"choupani",
+    email:"saeed@gmail.com"
+  })
+
+  function handlerFirstNameChange(e){
+    setPerson({
+      ...person,
+      firstname : e.target.value
+    })
   }
-  function LastNameChange(e){
-    setLastName(e.target.value)
+  function handlerLastNameChange(e){
+    setPerson({
+      ...person,
+      lastname : e.target.value
+    })
   }
-  function resetChange(){
-    setFirstName('')
-    setLastName('')
+  function handlerEmailChange(e){
+    setPerson({
+      ...person,
+      email : e.target.value
+    })
   }
+
   return(
-    <form onSubmit={e => e.preventDefault()}>
-      <input
-      placeholder="First Name"
-      onChange={FirstNameChange}
-      value={firstName}/>
-      <input
-      placeholder="Last Name"
-      value={lastName}
-      onChange={LastNameChange}
-      />
-      <h1>HI, {firstName} {lastName}</h1>
-      <button onClick={resetChange}>RESET</button>
-    </form>
+    <>
+      <label>
+        Firstname:
+        <input 
+        value={person.firstname}
+        onChange={handlerFirstNameChange}
+        />
+      </label>
+      <br/>
+      <br/>
+      <label>
+        Lastname:
+        <input 
+        value={person.lastname}
+        onChange={handlerLastNameChange}
+        />
+      </label>
+      <br/>
+      <br/>
+      <label>
+        Email:
+        <input 
+        value={person.email}
+        onChange={handlerEmailChange}
+        />
+      </label>
+      <p>
+        {person.firstname}{' '}
+        {person.lastname}{' '}
+        {person.email}
+      </p>
+
+
+    </>
   )
+
 }
